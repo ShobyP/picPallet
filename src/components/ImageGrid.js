@@ -4,7 +4,6 @@ import {motion} from 'framer-motion';
 
 const ImageGrid = ({setSelectedImg}) => {
     const { docs } = useFireStore('images');
-    console.log(docs);
     return (
         <div className="img-grid">
             {docs && docs.map(doc => (
@@ -12,7 +11,7 @@ const ImageGrid = ({setSelectedImg}) => {
                      key={doc.id}
                      layout
                      whileHover={{opacity: 1}}
-                     onClick={() => setSelectedImg(doc.url)}
+                     onClick={() => setSelectedImg(doc)}
                 >
                     <motion.img src={doc.url} alt="alter pic"
                         initial={{ opacity: 0}}

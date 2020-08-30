@@ -17,7 +17,7 @@ body{
 }
 .title h1{
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
@@ -39,7 +39,7 @@ label input{
   width: 0;
   opacity: 0;
 }
-label{
+.label{
   display: block;
   width: 30px;
   height: 30px;
@@ -55,6 +55,11 @@ label:hover{
   background: var(--primary);
   color: white;
 }
+button:hover{
+  background: var(--error);
+  border: 1px solid var(--error);
+  color: white;
+}
 .output{
   height: 60px;
   font-size: 0.8rem;
@@ -62,7 +67,6 @@ label:hover{
 .error{
   color: var(--error);
 }
-
 /* progress bar styles */
 .progress-bar{
   height: 5px;
@@ -101,13 +105,13 @@ label:hover{
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
 }
 .backdrop img{
   display: block;
   max-width: 60%;
   max-height: 80%;
   margin: 60px auto;
-  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
+  box-shadow: 3px 5px 7px rgba(0,0,0,0.8);
   border: 3px solid white;
 }

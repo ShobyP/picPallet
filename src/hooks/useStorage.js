@@ -18,7 +18,8 @@ const useStorage = (file) => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             const createdAt = timeStamp();
-            await collectionRef.add({url, createdAt})
+            const fileName = file.name;
+            await collectionRef.add({fileName, url, createdAt})
             setUrl(url);
         })
     }, [file])
@@ -26,4 +27,18 @@ const useStorage = (file) => {
     return { progress, url, error }
 }
 
-export default useStorage;
+const deleteDoc = (selectedFile) => {
+    projectFireStore
+        .collection('images')
+        .doc(selectedFile.id)
+        .delete()
+        .then(()=> {});
+
+    projectStorage
+        .ref()
+        .child(selectedFile.fileName)
+        .delete()
+        .then(()=>{});
+}
+
+export  { useStorage, deleteDoc };
